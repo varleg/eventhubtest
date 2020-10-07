@@ -1,6 +1,6 @@
-const { EventhubProducerClient } = require("@azure/event-hubs")
-const connectionString = process.env.EVENTHUB_CONNECTION_STRING
-const eventHubName = "eventhubtestingforpx"
+const { EventhubProducerClient } = require("@azure/event-hubs");
+const connectionString = process.env.EVENTHUB_CONNECTION_STRING;
+const eventHubName = "eventhubtestingforpx";
 module.exports = async function (context, req) {
     const producer = new EventhubProducerClient(connectionString, eventHubName);
 
