@@ -1,17 +1,13 @@
-const { EventhubProducerClient } = require("@azure/event-hubs");
-const appInsights = require("applicationinsights");
-const connectionString = process.env.EVENTHUB_CONNECTION_STRING;
-const eventHubName = "functionappseventhub";
-module.exports = async function (context) {
-    appInsights.start();
-    //const producer = new EventhubProducerClient(connectionString, eventHubName);
+module.exports = async function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
 
-    //const batch = await producer.createBatch();
-    //batch.tryAdd({ body: "first  http event" });
-    //batch.tryAdd({ body: "second http  event" });
-    //batch.tryAdd({ body: "third  http event" });
+    const name = (req.query.name || (req.body && req.body.name));
+    const responseMessage = name
+        ? "Hello, " + name + ". This HTTP triggered function executed successfully."
+        : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
 
-    //await producer.sendBatch(batch);
-    //await producer.close();
-    context.log("A batch of three events was sent from azure function after trigger event");
+    context.res = {
+        // status: 200, /* Defaults to 200 */
+        body: responseMessage
+    };
 }
