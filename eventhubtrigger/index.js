@@ -1,7 +1,7 @@
 const { EventhubProducerClient } = require("@azure/event-hubs");
 const appInsights = require("applicationinsights");
 const connectionString = process.env.EVENTHUB_CONNECTION_STRING;
-const eventHubName = "eventhubtestingforpx";
+const eventHubName = "functionappseventhub";
 module.exports = async function (context, req) {
     appInsights.start();
     const producer = new EventhubProducerClient(connectionString, eventHubName);
