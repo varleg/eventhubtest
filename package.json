@@ -1,0 +1,14 @@
+{
+  "name": "eventhubstest",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "func start",
+    "test": "echo \"No tests yet...\""
+  },
+  "dependencies": {
+    "@azure/eventhubs-checkpointstore-blob": "^1.0.1",
+    "@azure/storage-blob": "^12.2.1"
+  },
+  "devDependencies": {}
+}
